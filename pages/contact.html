@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакти — ElectroMoto BG</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <style>
+    .page-hero { padding: 140px 0 80px; background: linear-gradient(180deg, var(--dark2) 0%, var(--dark) 100%); text-align: center; border-bottom: 1px solid var(--card-border); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; padding: 80px 0; }
+    .contact-info-cards { display: flex; flex-direction: column; gap: 16px; }
+    .contact-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--border-radius-lg); padding: 24px; display: flex; gap: 20px; align-items: flex-start; transition: var(--transition); }
+    .contact-card:hover { border-color: rgba(0,255,136,0.3); transform: translateX(4px); }
+    .contact-card-icon { width: 52px; height: 52px; background: rgba(0,255,136,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 26px; flex-shrink: 0; }
+    .contact-card-title { font-family: var(--font-heading); font-weight: 700; color: var(--white); font-size: 16px; margin-bottom: 6px; }
+    .contact-card-value { font-size: 15px; color: var(--primary); font-weight: 600; margin-bottom: 4px; }
+    .contact-card-note { font-size: 12px; color: var(--text-muted); }
+    .contact-form-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--border-radius-lg); padding: 40px; }
+    .form-title { font-family: var(--font-heading); font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .form-subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 32px; }
+    .form-group { margin-bottom: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-label { display: block; font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: var(--dark3);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      outline: none;
+      transition: var(--transition);
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0,255,136,0.1); }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-select option { background: var(--dark3); }
+    .form-submit { width: 100%; margin-top: 8px; }
+    .map-section { padding: 0 0 80px; }
+    .map-placeholder { background: var(--dark2); border: 1px solid var(--card-border); border-radius: var(--border-radius-lg); height: 320px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px; color: var(--text-muted); font-size: 15px; }
+    .map-placeholder-icon { font-size: 48px; }
+    .faq-section { padding: 80px 0; background: var(--dark2); }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto; }
+    .faq-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--border-radius); overflow: hidden; }
+    .faq-question { padding: 20px 24px; font-family: var(--font-heading); font-weight: 600; font-size: 16px; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: var(--transition); }
+    .faq-question:hover { color: var(--primary); }
+    .faq-answer { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+    .faq-item.open .faq-answer { max-height: 200px; padding: 0 24px 20px; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--primary); }
+    .faq-icon { transition: var(--transition); font-size: 20px; }
+    @media(max-width: 1024px) { .contact-grid { grid-template-columns: 1fr; } }
+    @media(max-width: 640px) { .form-row { grid-template-columns: 1fr; } .contact-form-card { padding: 24px; } }
+  </style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="../index.html" class="logo"><div class="logo-icon">⚡</div><div class="logo-text">ELECTRO<span>MOTO</span></div></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Начало</a></li>
+        <li class="nav-dropdown">
+          <a href="products.html">Продукти ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="surron.html">⚡ Surron</a>
+            <a href="talaria.html">🔥 Talaria</a>
+            <a href="products.html">Всички модели</a>
+            <a href="accessories.html">Аксесоари</a>
+          </div>
+        </li>
+        <li><a href="about.html">За нас</a></li>
+        <li><a href="contact.html" class="active">Контакти</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="cart-btn" onclick="openCart()">🛒 Количка <span class="cart-badge" id="cartBadge">0</span></button>
+        <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-nav-links">
+    <li><a href="../index.html" onclick="toggleMenu()">🏠 Начало</a></li>
+    <li><a href="surron.html" onclick="toggleMenu()">⚡ Surron</a></li>
+    <li><a href="talaria.html" onclick="toggleMenu()">🔥 Talaria</a></li>
+    <li><a href="products.html" onclick="toggleMenu()">📋 Всички продукти</a></li>
+    <li><a href="about.html" onclick="toggleMenu()">ℹ️ За нас</a></li>
+    <li><a href="contact.html" onclick="toggleMenu()">📞 Контакти</a></li>
+  </ul>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="section-tag">Свържи се с нас</span>
+    <h1 class="section-title" style="margin-top:12px;">Контакти</h1>
+    <p class="section-subtitle">Имаш въпрос? Искаш тест драйв? Свържи се с нас — отговаряме в рамките на 24 часа.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Info -->
+      <div class="contact-info-cards reveal-left">
+        <div class="contact-card">
+          <div class="contact-card-icon">📞</div>
+          <div>
+            <div class="contact-card-title">Телефон</div>
+            <div class="contact-card-value">+359 88 888 8888</div>
+            <div class="contact-card-note">Пн–Сб: 09:00–19:00</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">📧</div>
+          <div>
+            <div class="contact-card-title">Имейл</div>
+            <div class="contact-card-value">info@electromotobg.com</div>
+            <div class="contact-card-note">Отговаряме до 24 часа</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">📍</div>
+          <div>
+            <div class="contact-card-title">Шоурум & Сервиз</div>
+            <div class="contact-card-value">ул. Витоша 45, София 1000</div>
+            <div class="contact-card-note">До НДК, паркинг наличен</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">⏰</div>
+          <div>
+            <div class="contact-card-title">Работно време</div>
+            <div class="contact-card-value">Пн–Сб: 09:00–19:00</div>
+            <div class="contact-card-note">Неделя: 10:00–16:00</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">🛵</div>
+          <div>
+            <div class="contact-card-title">Тест Драйв</div>
+            <div class="contact-card-value">Безплатен тест на всеки модел</div>
+            <div class="contact-card-note">Запази час по телефона</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form-card reveal-right">
+        <div class="form-title">Изпрати запитване</div>
+        <div class="form-subtitle">Попълни формата и ще се свържем с теб възможно най-скоро.</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Три имена *</label>
+            <input type="text" class="form-input" placeholder="Иван Петров" id="contactName">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Телефон *</label>
+            <input type="tel" class="form-input" placeholder="+359 88..." id="contactPhone">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Имейл</label>
+          <input type="email" class="form-input" placeholder="твоят@email.com" id="contactEmail">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Интересувам се от</label>
+          <select class="form-select" id="contactInterest">
+            <option value="">— Избери модел —</option>
+            <optgroup label="⚡ Surron">
+              <option>Surron Light Bee X</option>
+              <option>Surron Light Bee S</option>
+              <option>Surron Ultra Bee</option>
+              <option>Surron Storm Bee</option>
+            </optgroup>
+            <optgroup label="🔥 Talaria">
+              <option>Talaria Sting</option>
+              <option>Talaria Sting R</option>
+              <option>Talaria Sting MX4</option>
+              <option>Talaria XXX</option>
+            </optgroup>
+            <option>Аксесоари / Части</option>
+            <option>Сервиз</option>
+            <option>Друго</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Съобщение</label>
+          <textarea class="form-textarea" placeholder="Разкажи ни повече за твоите нужди, въпроси или желания..." id="contactMessage"></textarea>
+        </div>
+
+        <div class="form-group" style="display:flex;align-items:flex-start;gap:10px;">
+          <input type="checkbox" id="gdpr" style="margin-top:3px;accent-color:var(--primary);">
+          <label for="gdpr" style="font-size:12px;color:var(--text-muted);cursor:pointer;">
+            Съгласен съм с <a href="#" style="color:var(--primary)">Политиката за поверителност</a> и обработката на личните ми данни.
+          </label>
+        </div>
+
+        <button class="btn-primary form-submit" onclick="submitForm()">
+          📨 Изпрати запитването
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+  <div class="container">
+    <div class="map-placeholder">
+      <div class="map-placeholder-icon">📍</div>
+      <strong style="color:var(--white)">ElectroMoto BG Шоурум</strong>
+      <span>ул. Витоша 45, Sofia, Bulgaria</span>
+      <a href="https://maps.google.com" target="_blank" class="btn-secondary" style="padding: 10px 20px; font-size: 13px; margin-top: 8px;">
+        Отвори в Google Maps →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title">Чести въпроси</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Има ли нужда от регистрация/КАТ за Surron или Talaria?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Зависи от модела и страната. В България мотори до 250W и 25 km/h не изискват регистрация. По-мощните модели като Storm Bee или Talaria XXX изискват регистрация. Консултирай се с нас за актуалната правна рамка.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Колко отнема зареждането на батерията?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Стандартното зарядно зарежда батерията за 4-6 часа. С нашето бързо зарядно 10A се намалява до 3-4 часа. Всички мотори се доставят с стандартно зарядно устройство.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Каква гаранция дава ElectroMoto BG?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Предлагаме 3 години гаранция на всички продавани модели. Гаранцията покрива дефекти в производството на мотора и батерията. Имаме сертифициран сервиз в София.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Мога ли да пробвам преди покупка?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Да! Предлагаме безплатен тест драйв на всеки модел. Просто се обади и запази час. Разполагаме с тест пистa в близост до шоурума.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Доставяте ли извън София?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Да, доставяме в цяла България чрез Speedy или с наш курие. Стандартната доставка е 2-3 работни дни. При поръчки над 200 лв. доставката е безплатна.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Предлагате ли разсрочено плащане?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Да! Работим с Fibank и UniCredit за разсрочено плащане без лихва до 12 месеца. Можеш да получиш одобрение онлайн за минути. Свържи се с нас за детайли.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header"><h3 class="cart-title">🛒 Количка</h3><button class="cart-close" onclick="closeCart()">✕</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total-row"><span class="cart-total-label">Общо:</span><span class="cart-total-amount" id="cartTotal">0 лв.</span></div>
+    <button class="checkout-btn" onclick="checkout()">💳 Продължи към плащане</button>
+  </div>
+</div>
+<div class="toast" id="toast"><span class="toast-icon">✅</span><div class="toast-text"><strong id="toastTitle"></strong><span id="toastMsg"></span></div></div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand col -->
+        <div>
+          <a href="../index.html" class="logo" style="display:inline-flex;">
+            <div class="logo-icon">⚡</div>
+            <div class="logo-text">ELECTRO<span>MOTO</span></div>
+          </a>
+          <p class="footer-brand-desc">
+            Официален дистрибутор на Surron и Talaria в България. Вносим, продаваме и обслужваме електрически dirt bikes с грижа и страст.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" title="Facebook">📘</a>
+            <a href="#" class="social-link" title="Instagram">📸</a>
+            <a href="#" class="social-link" title="YouTube">▶️</a>
+            <a href="#" class="social-link" title="TikTok">🎵</a>
+          </div>
+        </div>
+
+        <!-- Surron col -->
+        <div>
+          <h4 class="footer-col-title">⚡ Surron</h4>
+          <ul class="footer-links">
+            <li><a href="products/surron-light-bee-x.html">Light Bee X</a></li>
+            <li><a href="products/surron-light-bee-s.html">Light Bee S</a></li>
+            <li><a href="products/surron-storm-bee.html">Storm Bee</a></li>
+            <li><a href="products/surron-ultra-bee.html">Ultra Bee</a></li>
+          </ul>
+        </div>
+
+        <!-- Talaria col -->
+        <div>
+          <h4 class="footer-col-title">🔥 Talaria</h4>
+          <ul class="footer-links">
+            <li><a href="products/talaria-sting.html">Sting</a></li>
+            <li><a href="products/talaria-sting-r.html">Sting R</a></li>
+            <li><a href="products/talaria-sting-mx4.html">Sting MX4</a></li>
+            <li><a href="products/talaria-xxx.html">XXX</a></li>
+          </ul>
+        </div>
+
+        <!-- Info col -->
+        <div>
+          <h4 class="footer-col-title">Информация</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">За нас</a></li>
+            <li><a href="contact.html">Контакти</a></li>
+            <li><a href="#">Доставка & Връщане</a></li>
+            <li><a href="#">Гаранция</a></li>
+            <li><a href="#">Сервиз</a></li>
+            <li><a href="#">Разсрочено плащане</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          © 2024 <span>ElectroMoto BG</span>. Всички права запазени. | ЕИК: 123456789
+        </p>
+        <div class="footer-bottom-links">
+          <a href="#">Политика за поверителност</a>
+          <a href="#">Условия за ползване</a>
+          <a href="#">Бисквитки</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="../js/main.js"></script>
+<script>
+function submitForm() {
+  const name = document.getElementById('contactName')?.value?.trim();
+  const phone = document.getElementById('contactPhone')?.value?.trim();
+  const gdpr = document.getElementById('gdpr')?.checked;
+  if (!name || !phone) { showToast('Грешка', 'Попълни задължителните полета!', '⚠️'); return; }
+  if (!gdpr) { showToast('Грешка', 'Потвърди политиката за поверителност!', '⚠️'); return; }
+  showToast('Изпратено!', `Ще се свържем с ${name} скоро!`, '📨');
+  document.getElementById('contactName').value = '';
+  document.getElementById('contactPhone').value = '';
+  document.getElementById('contactEmail').value = '';
+  document.getElementById('contactMessage').value = '';
+  document.getElementById('gdpr').checked = false;
+}
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

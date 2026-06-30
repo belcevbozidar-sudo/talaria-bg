@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surron — ElectroMoto BG | Официален вносител</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <style>
+    .brand-hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+    }
+    .brand-hero-bg { position: absolute; inset: 0; }
+    .brand-hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
+    .brand-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(8,11,18,0.97) 40%, rgba(0,80,0,0.2) 100%);
+    }
+    .brand-hero-content { position: relative; z-index: 2; padding-top: 80px; }
+    .brand-hero-logo {
+      font-family: var(--font-display);
+      font-size: clamp(60px, 10vw, 120px);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .brand-hero-logo span { color: var(--primary); }
+    .brand-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+      background: var(--card-border);
+    }
+    .timeline-item {
+      background: var(--dark2);
+      padding: 28px;
+      text-align: center;
+    }
+    .timeline-year {
+      font-family: var(--font-display);
+      font-size: 13px;
+      color: var(--primary);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .timeline-event {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+    }
+    .compare-table th {
+      background: var(--dark3);
+      padding: 16px 20px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--white);
+      text-align: left;
+      border-bottom: 2px solid var(--primary);
+    }
+    .compare-table th:first-child { color: var(--text-muted); font-weight: 400; }
+    .compare-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--card-border);
+      font-size: 14px;
+      color: var(--text-light);
+    }
+    .compare-table tr:hover td { background: rgba(0,255,136,0.03); }
+    .compare-table td:first-child { color: var(--text-muted); font-size: 13px; }
+    .compare-table .best { color: var(--primary); font-weight: 700; }
+    @media(max-width: 768px) {
+      .brand-timeline { grid-template-columns: 1fr 1fr; }
+      .compare-table { font-size: 12px; }
+      .compare-table th, .compare-table td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">⚡</div>
+        <div class="logo-text">ELECTRO<span>MOTO</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Начало</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="active">Продукти ▾</a>
+          <div class="nav-dropdown-menu">
+            <a href="surron.html">⚡ Surron</a>
+            <a href="talaria.html">🔥 Talaria</a>
+            <a href="products.html">Всички модели</a>
+            <a href="accessories.html">Аксесоари</a>
+          </div>
+        </li>
+        <li><a href="about.html">За нас</a></li>
+        <li><a href="contact.html">Контакти</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="nav-search">🔍</div>
+        <button class="cart-btn" onclick="openCart()">🛒 Количка <span class="cart-badge" id="cartBadge">0</span></button>
+        <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-nav-links">
+    <li><a href="../index.html" onclick="toggleMenu()">🏠 Начало</a></li>
+    <li><a href="surron.html" onclick="toggleMenu()">⚡ Surron</a></li>
+    <li><a href="talaria.html" onclick="toggleMenu()">🔥 Talaria</a></li>
+    <li><a href="products.html" onclick="toggleMenu()">📋 Всички продукти</a></li>
+    <li><a href="about.html" onclick="toggleMenu()">ℹ️ За нас</a></li>
+    <li><a href="contact.html" onclick="toggleMenu()">📞 Контакти</a></li>
+  </ul>
+</div>
+
+<!-- SURRON HERO -->
+<section class="brand-hero">
+  <div class="brand-hero-bg">
+    <img src="../images/surron-storm-bee.png" alt="Surron">
+    <div class="brand-hero-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="brand-hero-content">
+      <span class="section-tag">Официален дистрибутор</span>
+      <div class="brand-hero-logo">SUR<span>RON</span></div>
+      <p style="font-size:19px; color:var(--text-muted); max-width:560px; margin-bottom:32px;">
+        Пионерите на електрическите dirt bikes. От 2014 г. Surron революционизира офроуд каранeто с висококачествени, надеждни и мощни електрически bikes.
+      </p>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a href="#surron-products" class="btn-primary">⚡ Виж всички Surron модели</a>
+        <a href="contact.html" class="btn-secondary">📞 Консултация</a>
+      </div>
+
+      <div class="brand-timeline">
+        <div class="timeline-item"><div class="timeline-year">2014</div><div class="timeline-event">Основаване на Surron</div></div>
+        <div class="timeline-item"><div class="timeline-year">2017</div><div class="timeline-event">Light Bee — революция</div></div>
+        <div class="timeline-item"><div class="timeline-year">2021</div><div class="timeline-event">Storm Bee — 110 km/h</div></div>
+        <div class="timeline-item"><div class="timeline-year">2023</div><div class="timeline-event">Ultra Bee — ново ниво</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="surron-products">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">⚡ Surron гама</span>
+      <h2 class="section-title">Всички Surron модели</h2>
+      <p class="section-subtitle">От Light Bee до Storm Bee — намери своя Surron.</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card reveal" data-brand="surron" data-level="beginner"
+        data-name="Surron Light Bee X" data-price="5990"
+        data-img="../images/surron-light-bee-x.png"
+        data-desc="Surron Light Bee X е идеалният starter bike. 47 кг, 6000W двигател — перфектен баланс между забавление и контрол. Най-продаваният електрически dirt bike в света."
+        data-motor="6000W" data-speed="45 km/h" data-range="65 km" data-battery="60V 32.5Ah">
+        <span class="product-badge badge-hot">Бестселър</span>
+        <button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
+        <div class="product-img-wrap">
+          <img src="../images/surron-light-bee-x.png" alt="Surron Light Bee X" class="product-img" loading="lazy">
+          <div class="product-img-overlay"><button class="quick-view-btn" onclick="openModal(this.closest('.product-card'))">Бърз преглед</button></div>
+        </div>
+        <div class="product-info">
+          <div class="product-brand-tag">⚡ SURRON</div>
+          <h3 class="product-name">Light Bee X</h3>
+          <div class="product-specs">
+            <div class="spec-item"><span class="spec-icon">⚡</span> 6000W</div>
+            <div class="spec-item"><span class="spec-icon">🏎️</span> 45 km/h</div>
+            <div class="spec-item"><span class="spec-icon">🔋</span> 65 km</div>
+          </div>
+          <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(142 ревюта)</span></div>
+          <div class="product-price-row">
+            <div><span class="product-price">5 990 лв.</span><span class="product-old-price">6 490 лв.</span></div>
+            <button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-brand="surron" data-level="beginner"
+        data-name="Surron Light Bee S" data-price="5490"
+        data-img="../images/surron-light-bee-s.png"
+        data-desc="Surron Light Bee S — компактна, лека, перфектна за начинаещи и за трейлове. Идеалният първи електрически bike."
+        data-motor="5000W" data-speed="45 km/h" data-range="60 km" data-battery="60V 28Ah">
+        <span class="product-badge badge-new">Начинаещи</span>
+        <button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
+        <div class="product-img-wrap">
+          <img src="../images/surron-light-bee-s.png" alt="Surron Light Bee S" class="product-img" loading="lazy">
+          <div class="product-img-overlay"><button class="quick-view-btn" onclick="openModal(this.closest('.product-card'))">Бърз преглед</button></div>
+        </div>
+        <div class="product-info">
+          <div class="product-brand-tag">⚡ SURRON</div>
+          <h3 class="product-name">Light Bee S</h3>
+          <div class="product-specs">
+            <div class="spec-item"><span class="spec-icon">⚡</span> 5000W</div>
+            <div class="spec-item"><span class="spec-icon">🏎️</span> 45 km/h</div>
+            <div class="spec-item"><span class="spec-icon">🔋</span> 60 km</div>
+          </div>
+          <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(98 ревюта)</span></div>
+          <div class="product-price-row">
+            <div><span class="product-price">5 490 лв.</span></div>
+            <button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-brand="surron" data-level="pro"
+        data-name="Surron Ultra Bee" data-price="9990"
+        data-img="../images/surron-ultra-bee.png"
+        data-desc="Surron Ultra Bee — следващото ниво. 12.5kW, 100 км обхват. За ендуро и трейл ентусиасти."
+        data-motor="12500W" data-speed="80 km/h" data-range="100 km" data-battery="72V 42Ah">
+        <span class="product-badge badge-new">Ново 2024</span>
+        <button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
+        <div class="product-img-wrap">
+          <img src="../images/surron-ultra-bee.png" alt="Surron Ultra Bee" class="product-img" loading="lazy">
+          <div class="product-img-overlay"><button class="quick-view-btn" onclick="openModal(this.closest('.product-card'))">Бърз преглед</button></div>
+        </div>
+        <div class="product-info">
+          <div class="product-brand-tag">⚡ SURRON</div>
+          <h3 class="product-name">Ultra Bee</h3>
+          <div class="product-specs">
+            <div class="spec-item"><span class="spec-icon">⚡</span> 12.5kW</div>
+            <div class="spec-item"><span class="spec-icon">🏎️</span> 80 km/h</div>
+            <div class="spec-item"><span class="spec-icon">🔋</span> 100 km</div>
+          </div>
+          <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(53 ревюта)</span></div>
+          <div class="product-price-row">
+            <div><span class="product-price">9 990 лв.</span><span class="product-old-price">10 490 лв.</span></div>
+            <button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-brand="surron" data-level="pro"
+        data-name="Surron Storm Bee" data-price="12990"
+        data-img="../images/surron-storm-bee.png"
+        data-desc="Surron Storm Bee — чудовищен мощен електрически мотор. 22.5kW, 110 km/h. Хидравлични дискови спирачки Brembo. За тези, неспирящи пред нищо."
+        data-motor="22500W" data-speed="110 km/h" data-range="80 km" data-battery="96V 55Ah">
+        <span class="product-badge badge-limited">Флагман</span>
+        <button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
+        <div class="product-img-wrap">
+          <img src="../images/surron-storm-bee.png" alt="Surron Storm Bee" class="product-img" loading="lazy">
+          <div class="product-img-overlay"><button class="quick-view-btn" onclick="openModal(this.closest('.product-card'))">Бърз преглед</button></div>
+        </div>
+        <div class="product-info">
+          <div class="product-brand-tag">⚡ SURRON</div>
+          <h3 class="product-name">Storm Bee</h3>
+          <div class="product-specs">
+            <div class="spec-item"><span class="spec-icon">⚡</span> 22.5kW</div>
+            <div class="spec-item"><span class="spec-icon">🏎️</span> 110 km/h</div>
+            <div class="spec-item"><span class="spec-icon">🔋</span> 80 km</div>
+          </div>
+          <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(67 ревюта)</span></div>
+          <div class="product-price-row">
+            <div><span class="product-price">12 990 лв.</span></div>
+            <button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE TABLE -->
+<section style="padding: 80px 0; background: var(--dark2);">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">Сравнение</span>
+      <h2 class="section-title">Surron модели — сравнение</h2>
+    </div>
+    <div style="overflow-x: auto; border-radius: var(--border-radius-lg); border: 1px solid var(--card-border);">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Характеристика</th>
+            <th>Light Bee S</th>
+            <th>Light Bee X</th>
+            <th>Ultra Bee</th>
+            <th>Storm Bee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Двигател (номинален)</td><td>5000W</td><td>6000W</td><td>12500W</td><td class="best">22500W пиков</td></tr>
+          <tr><td>Топ скорост</td><td>45 km/h</td><td>45 km/h</td><td>80 km/h</td><td class="best">110 km/h</td></tr>
+          <tr><td>Обхват</td><td>60 km</td><td>65 km</td><td class="best">100 km</td><td>80 km</td></tr>
+          <tr><td>Батерия</td><td>60V 28Ah</td><td>60V 32.5Ah</td><td>72V 42Ah</td><td class="best">96V 55Ah</td></tr>
+          <tr><td>Тегло</td><td class="best">45 kg</td><td>47 kg</td><td>58 kg</td><td>85 kg</td></tr>
+          <tr><td>Спирачки</td><td>Дискови</td><td>Хидравлични</td><td>Хидравлични</td><td class="best">Brembo хидравлични</td></tr>
+          <tr><td>Цена</td><td>5 490 лв.</td><td>5 990 лв.</td><td>9 990 лв.</td><td>12 990 лв.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header"><h3 class="cart-title">🛒 Количка</h3><button class="cart-close" onclick="closeCart()">✕</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total-row"><span class="cart-total-label">Общо:</span><span class="cart-total-amount" id="cartTotal">0 лв.</span></div>
+    <button class="checkout-btn" onclick="checkout()">💳 Продължи към плащане</button>
+  </div>
+</div>
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="productModal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-inner">
+      <div class="modal-img-wrap"><img id="modalImg" src="" alt="" class="modal-img"></div>
+      <div class="modal-info">
+        <div class="modal-brand-tag" id="modalBrand"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <div class="modal-rating"><span class="stars">★★★★★</span></div>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-specs-grid" id="modalSpecs"></div>
+        <div class="modal-price-row"><span class="modal-price" id="modalPrice"></span></div>
+        <div class="modal-actions"><button class="add-to-cart-btn modal-cart-btn" id="modalCartBtn" style="padding:14px 24px;font-size:15px;">🛒 Добави в количката</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"><span class="toast-icon">✅</span><div class="toast-text"><strong id="toastTitle"></strong><span id="toastMsg"></span></div></div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand col -->
+        <div>
+          <a href="../index.html" class="logo" style="display:inline-flex;">
+            <div class="logo-icon">⚡</div>
+            <div class="logo-text">ELECTRO<span>MOTO</span></div>
+          </a>
+          <p class="footer-brand-desc">
+            Официален дистрибутор на Surron и Talaria в България. Вносим, продаваме и обслужваме електрически dirt bikes с грижа и страст.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" title="Facebook">📘</a>
+            <a href="#" class="social-link" title="Instagram">📸</a>
+            <a href="#" class="social-link" title="YouTube">▶️</a>
+            <a href="#" class="social-link" title="TikTok">🎵</a>
+          </div>
+        </div>
+
+        <!-- Surron col -->
+        <div>
+          <h4 class="footer-col-title">⚡ Surron</h4>
+          <ul class="footer-links">
+            <li><a href="products/surron-light-bee-x.html">Light Bee X</a></li>
+            <li><a href="products/surron-light-bee-s.html">Light Bee S</a></li>
+            <li><a href="products/surron-storm-bee.html">Storm Bee</a></li>
+            <li><a href="products/surron-ultra-bee.html">Ultra Bee</a></li>
+          </ul>
+        </div>
+
+        <!-- Talaria col -->
+        <div>
+          <h4 class="footer-col-title">🔥 Talaria</h4>
+          <ul class="footer-links">
+            <li><a href="products/talaria-sting.html">Sting</a></li>
+            <li><a href="products/talaria-sting-r.html">Sting R</a></li>
+            <li><a href="products/talaria-sting-mx4.html">Sting MX4</a></li>
+            <li><a href="products/talaria-xxx.html">XXX</a></li>
+          </ul>
+        </div>
+
+        <!-- Info col -->
+        <div>
+          <h4 class="footer-col-title">Информация</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">За нас</a></li>
+            <li><a href="contact.html">Контакти</a></li>
+            <li><a href="#">Доставка & Връщане</a></li>
+            <li><a href="#">Гаранция</a></li>
+            <li><a href="#">Сервиз</a></li>
+            <li><a href="#">Разсрочено плащане</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          © 2024 <span>ElectroMoto BG</span>. Всички права запазени. | ЕИК: 123456789
+        </p>
+        <div class="footer-bottom-links">
+          <a href="#">Политика за поверителност</a>
+          <a href="#">Условия за ползване</a>
+          <a href="#">Бисквитки</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
