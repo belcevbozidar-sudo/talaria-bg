@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="bg">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Всички продукти — ElectroMoto BG</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Всички продукти — ElectroMoto BG</title>
+<link href="../css/style.css" rel="stylesheet"/>
+<link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;⚡&lt;/text&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
+<style>
     .page-hero {
       padding: 140px 0 70px;
       background: linear-gradient(180deg, var(--dark2) 0%, var(--dark) 100%);
@@ -48,419 +49,355 @@
   </style>
 </head>
 <body>
-
-  <header class="header" id="header">
-    <div class="container">
-      <nav class="nav">
-        <a href="../index.html" class="logo">
-          <div class="logo-icon">⚡</div>
-          <div class="logo-text">ELECTRO<span>MOTO</span></div>
-        </a>
-        <ul class="nav-links">
-          <li><a href="../index.html">Начало</a></li>
-          <li class="nav-dropdown">
-            <a href="products.html" class="active">Продукти ▾</a>
-            <div class="nav-dropdown-menu">
-              <a href="surron.html">⚡ Surron</a>
-              <a href="talaria.html">🔥 Talaria</a>
-              <a href="products.html">Всички модели</a>
-              <a href="accessories.html">Аксесоари</a>
-            </div>
-          </li>
-          <li><a href="about.html">За нас</a></li>
-          <li><a href="contact.html">Контакти</a></li>
-        </ul>
-        <div class="nav-actions">
-          <div class="nav-search" onclick="toggleSearch()">🔍</div>
-          <button class="cart-btn" onclick="openCart()">
+<header class="header" id="header">
+<div class="container">
+<nav class="nav">
+<a class="logo" href="../index.html">
+<div class="logo-icon">⚡</div>
+<div class="logo-text">ELECTRO<span>MOTO</span></div>
+</a>
+<ul class="nav-links">
+<li><a href="../index.html">Начало</a></li>
+<li class="nav-dropdown">
+<a class="active" href="products.html">Продукти ▾</a>
+<div class="nav-dropdown-menu">
+<a href="surron.html">⚡ Surron</a>
+<a href="talaria.html">🔥 Talaria</a>
+<a href="products.html">Всички модели</a>
+<a href="accessories.html">Аксесоари</a>
+</div>
+</li>
+<li><a href="about.html">За нас</a></li>
+<li><a href="contact.html">Контакти</a></li>
+</ul>
+<div class="nav-actions">
+<div class="nav-search" onclick="toggleSearch()">🔍</div>
+<button class="cart-btn" onclick="openCart()">
             🛒 Количка
             <span class="cart-badge" id="cartBadge">0</span>
-          </button>
-          <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <ul class="mobile-nav-links">
-      <li><a href="../index.html" onclick="toggleMenu()">🏠 Начало</a></li>
-      <li><a href="surron.html" onclick="toggleMenu()">⚡ Surron</a></li>
-      <li><a href="talaria.html" onclick="toggleMenu()">🔥 Talaria</a></li>
-      <li><a href="products.html" onclick="toggleMenu()">📋 Всички продукти</a></li>
-      <li><a href="accessories.html" onclick="toggleMenu()">🛡️ Аксесоари</a></li>
-      <li><a href="about.html" onclick="toggleMenu()">ℹ️ За нас</a></li>
-      <li><a href="contact.html" onclick="toggleMenu()">📞 Контакти</a></li>
-    </ul>
-  </div>
-
-  <div class="page-hero">
-    <div class="container">
-      <div class="breadcrumb">
-        <a href="../index.html">Начало</a>
-        <span>›</span>
-        <span>Всички продукти</span>
-      </div>
-      <span class="section-tag">Каталог</span>
-      <h1 class="section-title" style="margin-top: 12px;">Всички електрически bikes</h1>
-      <p class="section-subtitle">Surron и Talaria — цялата гама в едно място. Намери идеалния модел.</p>
-    </div>
-  </div>
-
-  <section class="products-section">
-    <div class="container">
-      <div class="products-filter">
-        <button class="filter-btn active" onclick="filterProducts('all', this)">Всички (8)</button>
-        <button class="filter-btn" onclick="filterProducts('surron', this)">⚡ Surron (4)</button>
-        <button class="filter-btn" onclick="filterProducts('talaria', this)">🔥 Talaria (4)</button>
-        <button class="filter-btn" onclick="filterProducts('beginner', this)">Начинаещи</button>
-        <button class="filter-btn" onclick="filterProducts('pro', this)">Про</button>
-      </div>
-
-      <div class="sort-row">
-        <div class="results-count">Показани: <strong>8</strong> продукта</div>
-        <select class="sort-select">
-          <option>Сортирай по: Популярни</option>
-          <option>Цена: Ниска → Висока</option>
-          <option>Цена: Висока → Ниска</option>
-          <option>Нови</option>
-        </select>
-      </div>
-
-      <div class="products-grid" id="productsGrid">
-
-        <div class="product-card reveal" data-brand="surron" data-level="beginner"
-          data-name="Surron Light Bee X" data-price="5990"
-          data-img="../images/surron-light-bee-x.png"
-          data-desc="Surron Light Bee X е идеалният starter bike. С тегло само 47 кг и мощен 6000W двигател предлага перфектния баланс между забавление и контрол."
-          data-motor="6000W" data-speed="45 km/h" data-range="65 km" data-battery="60V 32.5Ah">
-          <span class="product-badge badge-new">Ново</span>
-          <button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
-          <div class="product-img-wrap">
-            <img src="../images/surron-light-bee-x.png" alt="Surron Light Bee X" class="product-img" loading="lazy">
-            
-          </div>
-          <div class="product-info">
-            <div class="product-brand-tag">⚡ SURRON</div>
-            <h3 class="product-name">Light Bee X</h3>
-            <div class="product-specs">
-              <div class="spec-item"><span class="spec-icon">⚡</span> 6000W</div>
-              <div class="spec-item"><span class="spec-icon">🏎️</span> 45 km/h</div>
-              <div class="spec-item"><span class="spec-icon">🔋</span> 65 km</div>
-            </div>
-            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(142)</span></div>
-            <div class="product-price-row">
-              <div><span class="product-price">5 990 лв.</span><span class="product-old-price">6 490 лв.</span></div>
-              <button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card reveal" data-brand="surron" data-level="beginner"
-          data-name="Surron Light Bee S" data-price="5490"
-          data-img="../images/surron-light-bee-s.png"
-          data-desc="Surron Light Bee S — лека и маневрена. Идеална за трейлове и градска джунгла."
-          data-motor="5000W" data-speed="45 km/h" data-range="60 km" data-battery="60V 28Ah">
-          <span class="product-badge badge-hot">Топ продажби</span>
-          <button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
-          <div class="product-img-wrap">
-            <img src="../images/surron-light-bee-s.png" alt="Surron Light Bee S" class="product-img" loading="lazy">
-            
-          </div>
-          <div class="product-info">
-            <div class="product-brand-tag">⚡ SURRON</div>
-            <h3 class="product-name">Light Bee S</h3>
-            <div class="product-specs">
-              <div class="spec-item"><span class="spec-icon">⚡</span> 5000W</div>
-              <div class="spec-item"><span class="spec-icon">🏎️</span> 45 km/h</div>
-              <div class="spec-item"><span class="spec-icon">🔋</span> 60 km</div>
-            </div>
-            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(98)</span></div>
-            <div class="product-price-row">
-              <div><span class="product-price">5 490 лв.</span></div>
-              <button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card reveal" data-brand="surron" data-level="pro"
-          data-name="Surron Storm Bee" data-price="12990"
-          data-img="../images/surron-storm-bee.png"
-          data-desc="Surron Storm Bee — 22.5kW пиков мощност, 110 km/h топ скорост. За тези, които искат истинска адреналинова доза."
-          data-motor="22500W" data-speed="110 km/h" data-range="80 km" data-battery="96V 55Ah">
-          <span class="product-badge badge-limited">Лимитирано</span>
-          <button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
-          <div class="product-img-wrap">
-            <img src="../images/surron-storm-bee.png" alt="Surron Storm Bee" class="product-img" loading="lazy">
-            
-          </div>
-          <div class="product-info">
-            <div class="product-brand-tag">⚡ SURRON</div>
-            <h3 class="product-name">Storm Bee</h3>
-            <div class="product-specs">
-              <div class="spec-item"><span class="spec-icon">⚡</span> 22.5kW</div>
-              <div class="spec-item"><span class="spec-icon">🏎️</span> 110 km/h</div>
-              <div class="spec-item"><span class="spec-icon">🔋</span> 80 km</div>
-            </div>
-            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(67)</span></div>
-            <div class="product-price-row">
-              <div><span class="product-price">12 990 лв.</span></div>
-              <button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card reveal" data-brand="surron" data-level="pro"
-          data-name="Surron Ultra Bee" data-price="9990"
-          data-img="../images/surron-ultra-bee.png"
-          data-desc="Surron Ultra Bee — следващото ниво на Light Bee. По-мощен, по-бърз, по-далеч. Перфектна за ендуро и трейл."
-          data-motor="12500W" data-speed="80 km/h" data-range="100 km" data-battery="72V 42Ah">
-          <span class="product-badge badge-new">Ново 2024</span>
-          <button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
-          <div class="product-img-wrap">
-            <img src="../images/surron-ultra-bee.png" alt="Surron Ultra Bee" class="product-img" loading="lazy">
-            
-          </div>
-          <div class="product-info">
-            <div class="product-brand-tag">⚡ SURRON</div>
-            <h3 class="product-name">Ultra Bee</h3>
-            <div class="product-specs">
-              <div class="spec-item"><span class="spec-icon">⚡</span> 12.5kW</div>
-              <div class="spec-item"><span class="spec-icon">🏎️</span> 80 km/h</div>
-              <div class="spec-item"><span class="spec-icon">🔋</span> 100 km</div>
-            </div>
-            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(53)</span></div>
-            <div class="product-price-row">
-              <div><span class="product-price">9 990 лв.</span><span class="product-old-price">10 490 лв.</span></div>
-              <button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card reveal" data-brand="talaria" data-level="beginner"
-          data-name="Talaria Sting" data-price="5790"
-          data-img="../images/talaria-sting.png"
-          data-desc="Talaria Sting — агресивен и мощен. По-добро окачване, характерен стил. Идеален за всякакъв терен."
-          data-motor="6000W" data-speed="50 km/h" data-range="65 km" data-battery="60V 38.5Ah">
-          <span class="product-badge badge-hot">Популярен</span>
-          <button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
-          <div class="product-img-wrap">
-            <img src="../images/talaria-sting.png" alt="Talaria Sting" class="product-img" loading="lazy">
-            
-          </div>
-          <div class="product-info">
-            <div class="product-brand-tag">🔥 TALARIA</div>
-            <h3 class="product-name">Sting</h3>
-            <div class="product-specs">
-              <div class="spec-item"><span class="spec-icon">⚡</span> 6000W</div>
-              <div class="spec-item"><span class="spec-icon">🏎️</span> 50 km/h</div>
-              <div class="spec-item"><span class="spec-icon">🔋</span> 65 km</div>
-            </div>
-            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(119)</span></div>
-            <div class="product-price-row">
-              <div><span class="product-price">5 790 лв.</span></div>
-              <button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card reveal" data-brand="talaria" data-level="pro"
-          data-name="Talaria Sting R" data-price="7490"
-          data-img="../images/talaria-sting-r.png"
-          data-desc="Talaria Sting R — Racing версия с подобрено окачване, по-мощен двигател, по-добри спирачки."
-          data-motor="8000W" data-speed="60 km/h" data-range="70 km" data-battery="60V 40Ah">
-          <span class="product-badge badge-sale">-12%</span>
-          <button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
-          <div class="product-img-wrap">
-            <img src="../images/talaria-sting-r.png" alt="Talaria Sting R" class="product-img" loading="lazy">
-            
-          </div>
-          <div class="product-info">
-            <div class="product-brand-tag">🔥 TALARIA</div>
-            <h3 class="product-name">Sting R</h3>
-            <div class="product-specs">
-              <div class="spec-item"><span class="spec-icon">⚡</span> 8000W</div>
-              <div class="spec-item"><span class="spec-icon">🏎️</span> 60 km/h</div>
-              <div class="spec-item"><span class="spec-icon">🔋</span> 70 km</div>
-            </div>
-            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(88)</span></div>
-            <div class="product-price-row">
-              <div><span class="product-price">7 490 лв.</span><span class="product-old-price">8 490 лв.</span></div>
-              <button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card reveal" data-brand="talaria" data-level="pro"
-          data-name="Talaria Sting MX4" data-price="8990"
-          data-img="../images/talaria-sting-mx4.png"
-          data-desc="Talaria Sting MX4 — мотокрос машина за писта и open terrain. MX-специфично окачване, максимална производителност."
-          data-motor="10000W" data-speed="75 km/h" data-range="75 km" data-battery="72V 40Ah">
-          <span class="product-badge badge-new">MX Special</span>
-          <button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
-          <div class="product-img-wrap">
-            <img src="../images/talaria-sting-mx4.png" alt="Talaria Sting MX4" class="product-img" loading="lazy">
-            
-          </div>
-          <div class="product-info">
-            <div class="product-brand-tag">🔥 TALARIA</div>
-            <h3 class="product-name">Sting MX4</h3>
-            <div class="product-specs">
-              <div class="spec-item"><span class="spec-icon">⚡</span> 10kW</div>
-              <div class="spec-item"><span class="spec-icon">🏎️</span> 75 km/h</div>
-              <div class="spec-item"><span class="spec-icon">🔋</span> 75 km</div>
-            </div>
-            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(45)</span></div>
-            <div class="product-price-row">
-              <div><span class="product-price">8 990 лв.</span></div>
-              <button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card reveal" data-brand="talaria" data-level="pro"
-          data-name="Talaria XXX" data-price="14990"
-          data-img="../images/talaria-xxx.png"
-          data-desc="Talaria XXX — флагманът. 25kW пиков мощност, карбонови компоненти, Fox Racing окачване. Абсолютното изживяване."
-          data-motor="25000W" data-speed="120 km/h" data-range="90 km" data-battery="96V 50Ah">
-          <span class="product-badge badge-limited">Флагман</span>
-          <button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
-          <div class="product-img-wrap">
-            <img src="../images/talaria-xxx.png" alt="Talaria XXX" class="product-img" loading="lazy">
-            
-          </div>
-          <div class="product-info">
-            <div class="product-brand-tag">🔥 TALARIA</div>
-            <h3 class="product-name">XXX</h3>
-            <div class="product-specs">
-              <div class="spec-item"><span class="spec-icon">⚡</span> 25kW</div>
-              <div class="spec-item"><span class="spec-icon">🏎️</span> 120 km/h</div>
-              <div class="spec-item"><span class="spec-icon">🔋</span> 90 km</div>
-            </div>
-            <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(29)</span></div>
-            <div class="product-price-row">
-              <div><span class="product-price">14 990 лв.</span></div>
-              <button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
-  <div class="cart-sidebar" id="cartSidebar">
-    <div class="cart-header">
-      <h3 class="cart-title">🛒 Количка</h3>
-      <button class="cart-close" onclick="closeCart()">✕</button>
-    </div>
-    <div class="cart-items" id="cartItems"></div>
-    <div class="cart-footer" id="cartFooter" style="display:none;">
-      <div class="cart-total-row">
-        <span class="cart-total-label">Общо:</span>
-        <span class="cart-total-amount" id="cartTotal">0 лв.</span>
-      </div>
-      <button class="checkout-btn" onclick="checkout()">💳 Продължи към плащане</button>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-    <div class="modal" id="productModal">
-      <button class="modal-close" onclick="closeModal()">✕</button>
-      <div class="modal-inner">
-        <div class="modal-img-wrap"><img id="modalImg" src="" alt="" class="modal-img"></div>
-        <div class="modal-info">
-          <div class="modal-brand-tag" id="modalBrand"></div>
-          <h2 class="modal-title" id="modalTitle"></h2>
-          <div class="modal-rating"><span class="stars">★★★★★</span></div>
-          <p class="modal-desc" id="modalDesc"></p>
-          <div class="modal-specs-grid" id="modalSpecs"></div>
-          <div class="modal-price-row"><span class="modal-price" id="modalPrice"></span></div>
-          <div class="modal-actions">
-            <button class="add-to-cart-btn modal-cart-btn" id="modalCartBtn" style="padding:14px 24px;font-size:15px;">🛒 Добави в количката</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="toast" id="toast">
-    <span class="toast-icon">✅</span>
-    <div class="toast-text"><strong id="toastTitle"></strong><span id="toastMsg"></span></div>
-  </div>
-
-    <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <!-- Brand col -->
-        <div>
-          <a href="../index.html" class="logo" style="display:inline-flex;">
-            <div class="logo-icon">⚡</div>
-            <div class="logo-text">ELECTRO<span>MOTO</span></div>
-          </a>
-          <p class="footer-brand-desc">
+</button>
+<div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+<ul class="mobile-nav-links">
+<li><a href="../index.html" onclick="toggleMenu()">🏠 Начало</a></li>
+<li><a href="surron.html" onclick="toggleMenu()">⚡ Surron</a></li>
+<li><a href="talaria.html" onclick="toggleMenu()">🔥 Talaria</a></li>
+<li><a href="products.html" onclick="toggleMenu()">📋 Всички продукти</a></li>
+<li><a href="accessories.html" onclick="toggleMenu()">🛡️ Аксесоари</a></li>
+<li><a href="about.html" onclick="toggleMenu()">ℹ️ За нас</a></li>
+<li><a href="contact.html" onclick="toggleMenu()">📞 Контакти</a></li>
+</ul>
+</div>
+<div class="page-hero">
+<div class="container">
+<div class="breadcrumb">
+<a href="../index.html">Начало</a>
+<span>›</span>
+<span>Всички продукти</span>
+</div>
+<span class="section-tag">Каталог</span>
+<h1 class="section-title" style="margin-top: 12px;">Всички електрически bikes</h1>
+<p class="section-subtitle">Surron и Talaria — цялата гама в едно място. Намери идеалния модел.</p>
+</div>
+</div>
+<section class="products-section">
+<div class="container">
+<div class="products-filter">
+<button class="filter-btn active" onclick="filterProducts('all', this)">Всички (8)</button>
+<button class="filter-btn" onclick="filterProducts('surron', this)">⚡ Surron (4)</button>
+<button class="filter-btn" onclick="filterProducts('talaria', this)">🔥 Talaria (4)</button>
+<button class="filter-btn" onclick="filterProducts('beginner', this)">Начинаещи</button>
+<button class="filter-btn" onclick="filterProducts('pro', this)">Про</button>
+</div>
+<div class="sort-row">
+<div class="results-count">Показани: <strong>8</strong> продукта</div>
+<select class="sort-select">
+<option>Сортирай по: Популярни</option>
+<option>Цена: Ниска → Висока</option>
+<option>Цена: Висока → Ниска</option>
+<option>Нови</option>
+</select>
+</div>
+<div class="products-grid" id="productsGrid">
+<div class="product-card reveal" data-battery="60V 32.5Ah" data-brand="surron" data-desc="Surron Light Bee X е идеалният starter bike. С тегло само 47 кг и мощен 6000W двигател предлага перфектния баланс между забавление и контрол." data-img="../images/surron-light-bee-x.png" data-level="beginner" data-motor="6000W" data-name="Surron Light Bee X" data-price="5990" data-range="65 km" data-speed="45 km/h">
+<span class="product-badge badge-new">Ново</span>
+<button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
+<div class="product-img-wrap">
+<a class="product-img-link" href="products/surron-light-bee-x.html"><img alt="Surron Light Bee X" class="product-img" loading="lazy" src="../images/surron-light-bee-x.png"/></a>
+</div>
+<div class="product-info">
+<div class="product-brand-tag">⚡ SURRON</div>
+<a class="product-name-link" href="products/surron-light-bee-x.html"><h3 class="product-name">Light Bee X</h3></a>
+<div class="product-specs">
+<div class="spec-item"><span class="spec-icon">⚡</span> 6000W</div>
+<div class="spec-item"><span class="spec-icon">🏎️</span> 45 km/h</div>
+<div class="spec-item"><span class="spec-icon">🔋</span> 65 km</div>
+</div>
+<div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(142)</span></div>
+<div class="product-price-row">
+<div><span class="product-price">5 990 лв.</span><span class="product-old-price">6 490 лв.</span></div>
+<button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
+</div>
+</div>
+</div>
+<div class="product-card reveal" data-battery="60V 28Ah" data-brand="surron" data-desc="Surron Light Bee S — лека и маневрена. Идеална за трейлове и градска джунгла." data-img="../images/surron-light-bee-s.png" data-level="beginner" data-motor="5000W" data-name="Surron Light Bee S" data-price="5490" data-range="60 km" data-speed="45 km/h">
+<span class="product-badge badge-hot">Топ продажби</span>
+<button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
+<div class="product-img-wrap">
+<a class="product-img-link" href="products/surron-light-bee-s.html"><img alt="Surron Light Bee S" class="product-img" loading="lazy" src="../images/surron-light-bee-s.png"/></a>
+</div>
+<div class="product-info">
+<div class="product-brand-tag">⚡ SURRON</div>
+<a class="product-name-link" href="products/surron-light-bee-s.html"><h3 class="product-name">Light Bee S</h3></a>
+<div class="product-specs">
+<div class="spec-item"><span class="spec-icon">⚡</span> 5000W</div>
+<div class="spec-item"><span class="spec-icon">🏎️</span> 45 km/h</div>
+<div class="spec-item"><span class="spec-icon">🔋</span> 60 km</div>
+</div>
+<div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(98)</span></div>
+<div class="product-price-row">
+<div><span class="product-price">5 490 лв.</span></div>
+<button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
+</div>
+</div>
+</div>
+<div class="product-card reveal" data-battery="96V 55Ah" data-brand="surron" data-desc="Surron Storm Bee — 22.5kW пиков мощност, 110 km/h топ скорост. За тези, които искат истинска адреналинова доза." data-img="../images/surron-storm-bee.png" data-level="pro" data-motor="22500W" data-name="Surron Storm Bee" data-price="12990" data-range="80 km" data-speed="110 km/h">
+<span class="product-badge badge-limited">Лимитирано</span>
+<button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
+<div class="product-img-wrap">
+<a class="product-img-link" href="products/surron-storm-bee.html"><img alt="Surron Storm Bee" class="product-img" loading="lazy" src="../images/surron-storm-bee.png"/></a>
+</div>
+<div class="product-info">
+<div class="product-brand-tag">⚡ SURRON</div>
+<a class="product-name-link" href="products/surron-storm-bee.html"><h3 class="product-name">Storm Bee</h3></a>
+<div class="product-specs">
+<div class="spec-item"><span class="spec-icon">⚡</span> 22.5kW</div>
+<div class="spec-item"><span class="spec-icon">🏎️</span> 110 km/h</div>
+<div class="spec-item"><span class="spec-icon">🔋</span> 80 km</div>
+</div>
+<div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(67)</span></div>
+<div class="product-price-row">
+<div><span class="product-price">12 990 лв.</span></div>
+<button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
+</div>
+</div>
+</div>
+<div class="product-card reveal" data-battery="72V 42Ah" data-brand="surron" data-desc="Surron Ultra Bee — следващото ниво на Light Bee. По-мощен, по-бърз, по-далеч. Перфектна за ендуро и трейл." data-img="../images/surron-ultra-bee.png" data-level="pro" data-motor="12500W" data-name="Surron Ultra Bee" data-price="9990" data-range="100 km" data-speed="80 km/h">
+<span class="product-badge badge-new">Ново 2024</span>
+<button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
+<div class="product-img-wrap">
+<a class="product-img-link" href="products/surron-ultra-bee.html"><img alt="Surron Ultra Bee" class="product-img" loading="lazy" src="../images/surron-ultra-bee.png"/></a>
+</div>
+<div class="product-info">
+<div class="product-brand-tag">⚡ SURRON</div>
+<a class="product-name-link" href="products/surron-ultra-bee.html"><h3 class="product-name">Ultra Bee</h3></a>
+<div class="product-specs">
+<div class="spec-item"><span class="spec-icon">⚡</span> 12.5kW</div>
+<div class="spec-item"><span class="spec-icon">🏎️</span> 80 km/h</div>
+<div class="spec-item"><span class="spec-icon">🔋</span> 100 km</div>
+</div>
+<div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(53)</span></div>
+<div class="product-price-row">
+<div><span class="product-price">9 990 лв.</span><span class="product-old-price">10 490 лв.</span></div>
+<button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
+</div>
+</div>
+</div>
+<div class="product-card reveal" data-battery="60V 38.5Ah" data-brand="talaria" data-desc="Talaria Sting — агресивен и мощен. По-добро окачване, характерен стил. Идеален за всякакъв терен." data-img="../images/talaria-sting.png" data-level="beginner" data-motor="6000W" data-name="Talaria Sting" data-price="5790" data-range="65 km" data-speed="50 km/h">
+<span class="product-badge badge-hot">Популярен</span>
+<button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
+<div class="product-img-wrap">
+<a class="product-img-link" href="products/talaria-sting.html"><img alt="Talaria Sting" class="product-img" loading="lazy" src="../images/talaria-sting.png"/></a>
+</div>
+<div class="product-info">
+<div class="product-brand-tag">🔥 TALARIA</div>
+<a class="product-name-link" href="products/talaria-sting.html"><h3 class="product-name">Sting</h3></a>
+<div class="product-specs">
+<div class="spec-item"><span class="spec-icon">⚡</span> 6000W</div>
+<div class="spec-item"><span class="spec-icon">🏎️</span> 50 km/h</div>
+<div class="spec-item"><span class="spec-icon">🔋</span> 65 km</div>
+</div>
+<div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(119)</span></div>
+<div class="product-price-row">
+<div><span class="product-price">5 790 лв.</span></div>
+<button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
+</div>
+</div>
+</div>
+<div class="product-card reveal" data-battery="60V 40Ah" data-brand="talaria" data-desc="Talaria Sting R — Racing версия с подобрено окачване, по-мощен двигател, по-добри спирачки." data-img="../images/talaria-sting-r.png" data-level="pro" data-motor="8000W" data-name="Talaria Sting R" data-price="7490" data-range="70 km" data-speed="60 km/h">
+<span class="product-badge badge-sale">-12%</span>
+<button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
+<div class="product-img-wrap">
+<a class="product-img-link" href="products/talaria-sting-r.html"><img alt="Talaria Sting R" class="product-img" loading="lazy" src="../images/talaria-sting-r.png"/></a>
+</div>
+<div class="product-info">
+<div class="product-brand-tag">🔥 TALARIA</div>
+<a class="product-name-link" href="products/talaria-sting-r.html"><h3 class="product-name">Sting R</h3></a>
+<div class="product-specs">
+<div class="spec-item"><span class="spec-icon">⚡</span> 8000W</div>
+<div class="spec-item"><span class="spec-icon">🏎️</span> 60 km/h</div>
+<div class="spec-item"><span class="spec-icon">🔋</span> 70 km</div>
+</div>
+<div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(88)</span></div>
+<div class="product-price-row">
+<div><span class="product-price">7 490 лв.</span><span class="product-old-price">8 490 лв.</span></div>
+<button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
+</div>
+</div>
+</div>
+<div class="product-card reveal" data-battery="72V 40Ah" data-brand="talaria" data-desc="Talaria Sting MX4 — мотокрос машина за писта и open terrain. MX-специфично окачване, максимална производителност." data-img="../images/talaria-sting-mx4.png" data-level="pro" data-motor="10000W" data-name="Talaria Sting MX4" data-price="8990" data-range="75 km" data-speed="75 km/h">
+<span class="product-badge badge-new">MX Special</span>
+<button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
+<div class="product-img-wrap">
+<a class="product-img-link" href="products/talaria-sting-mx4.html"><img alt="Talaria Sting MX4" class="product-img" loading="lazy" src="../images/talaria-sting-mx4.png"/></a>
+</div>
+<div class="product-info">
+<div class="product-brand-tag">🔥 TALARIA</div>
+<a class="product-name-link" href="products/talaria-sting-mx4.html"><h3 class="product-name">Sting MX4</h3></a>
+<div class="product-specs">
+<div class="spec-item"><span class="spec-icon">⚡</span> 10kW</div>
+<div class="spec-item"><span class="spec-icon">🏎️</span> 75 km/h</div>
+<div class="spec-item"><span class="spec-icon">🔋</span> 75 km</div>
+</div>
+<div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(45)</span></div>
+<div class="product-price-row">
+<div><span class="product-price">8 990 лв.</span></div>
+<button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
+</div>
+</div>
+</div>
+<div class="product-card reveal" data-battery="96V 50Ah" data-brand="talaria" data-desc="Talaria XXX — флагманът. 25kW пиков мощност, карбонови компоненти, Fox Racing окачване. Абсолютното изживяване." data-img="../images/talaria-xxx.png" data-level="pro" data-motor="25000W" data-name="Talaria XXX" data-price="14990" data-range="90 km" data-speed="120 km/h">
+<span class="product-badge badge-limited">Флагман</span>
+<button class="product-wishlist" onclick="toggleWishlist(this)">🤍</button>
+<div class="product-img-wrap">
+<a class="product-img-link" href="products/talaria-xxx.html"><img alt="Talaria XXX" class="product-img" loading="lazy" src="../images/talaria-xxx.png"/></a>
+</div>
+<div class="product-info">
+<div class="product-brand-tag">🔥 TALARIA</div>
+<a class="product-name-link" href="products/talaria-xxx.html"><h3 class="product-name">XXX</h3></a>
+<div class="product-specs">
+<div class="spec-item"><span class="spec-icon">⚡</span> 25kW</div>
+<div class="spec-item"><span class="spec-icon">🏎️</span> 120 km/h</div>
+<div class="spec-item"><span class="spec-icon">🔋</span> 90 km</div>
+</div>
+<div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">(29)</span></div>
+<div class="product-price-row">
+<div><span class="product-price">14 990 лв.</span></div>
+<button class="add-to-cart-btn" onclick="addToCart(this.closest('.product-card'))">🛒 Купи</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+<div class="cart-header">
+<h3 class="cart-title">🛒 Количка</h3>
+<button class="cart-close" onclick="closeCart()">✕</button>
+</div>
+<div class="cart-items" id="cartItems"></div>
+<div class="cart-footer" id="cartFooter" style="display:none;">
+<div class="cart-total-row">
+<span class="cart-total-label">Общо:</span>
+<span class="cart-total-amount" id="cartTotal">0 лв.</span>
+</div>
+<button class="checkout-btn" onclick="checkout()">💳 Продължи към плащане</button>
+</div>
+</div>
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+<div class="modal" id="productModal">
+<button class="modal-close" onclick="closeModal()">✕</button>
+<div class="modal-inner">
+<div class="modal-img-wrap"><img alt="" class="modal-img" id="modalImg" src=""/></div>
+<div class="modal-info">
+<div class="modal-brand-tag" id="modalBrand"></div>
+<h2 class="modal-title" id="modalTitle"></h2>
+<div class="modal-rating"><span class="stars">★★★★★</span></div>
+<p class="modal-desc" id="modalDesc"></p>
+<div class="modal-specs-grid" id="modalSpecs"></div>
+<div class="modal-price-row"><span class="modal-price" id="modalPrice"></span></div>
+<div class="modal-actions">
+<button class="add-to-cart-btn modal-cart-btn" id="modalCartBtn" style="padding:14px 24px;font-size:15px;">🛒 Добави в количката</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="toast" id="toast">
+<span class="toast-icon">✅</span>
+<div class="toast-text"><strong id="toastTitle"></strong><span id="toastMsg"></span></div>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<!-- Brand col -->
+<div>
+<a class="logo" href="../index.html" style="display:inline-flex;">
+<div class="logo-icon">⚡</div>
+<div class="logo-text">ELECTRO<span>MOTO</span></div>
+</a>
+<p class="footer-brand-desc">
             Официален дистрибутор на Surron и Talaria в България. Вносим, продаваме и обслужваме електрически dirt bikes с грижа и страст.
           </p>
-          <div class="footer-socials">
-            <a href="#" class="social-link" title="Facebook">📘</a>
-            <a href="#" class="social-link" title="Instagram">📸</a>
-            <a href="#" class="social-link" title="YouTube">▶️</a>
-            <a href="#" class="social-link" title="TikTok">🎵</a>
-          </div>
-        </div>
-
-        <!-- Surron col -->
-        <div>
-          <h4 class="footer-col-title">⚡ Surron</h4>
-          <ul class="footer-links">
-            <li><a href="products/surron-light-bee-x.html">Light Bee X</a></li>
-            <li><a href="products/surron-light-bee-s.html">Light Bee S</a></li>
-            <li><a href="products/surron-storm-bee.html">Storm Bee</a></li>
-            <li><a href="products/surron-ultra-bee.html">Ultra Bee</a></li>
-          </ul>
-        </div>
-
-        <!-- Talaria col -->
-        <div>
-          <h4 class="footer-col-title">🔥 Talaria</h4>
-          <ul class="footer-links">
-            <li><a href="products/talaria-sting.html">Sting</a></li>
-            <li><a href="products/talaria-sting-r.html">Sting R</a></li>
-            <li><a href="products/talaria-sting-mx4.html">Sting MX4</a></li>
-            <li><a href="products/talaria-xxx.html">XXX</a></li>
-          </ul>
-        </div>
-
-        <!-- Info col -->
-        <div>
-          <h4 class="footer-col-title">Информация</h4>
-          <ul class="footer-links">
-            <li><a href="about.html">За нас</a></li>
-            <li><a href="contact.html">Контакти</a></li>
-            <li><a href="#">Доставка & Връщане</a></li>
-            <li><a href="#">Гаранция</a></li>
-            <li><a href="#">Сервиз</a></li>
-            <li><a href="#">Разсрочено плащане</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copy">
+<div class="footer-socials">
+<a class="social-link" href="#" title="Facebook">📘</a>
+<a class="social-link" href="#" title="Instagram">📸</a>
+<a class="social-link" href="#" title="YouTube">▶️</a>
+<a class="social-link" href="#" title="TikTok">🎵</a>
+</div>
+</div>
+<!-- Surron col -->
+<div>
+<h4 class="footer-col-title">⚡ Surron</h4>
+<ul class="footer-links">
+<li><a href="products/surron-light-bee-x.html">Light Bee X</a></li>
+<li><a href="products/surron-light-bee-s.html">Light Bee S</a></li>
+<li><a href="products/surron-storm-bee.html">Storm Bee</a></li>
+<li><a href="products/surron-ultra-bee.html">Ultra Bee</a></li>
+</ul>
+</div>
+<!-- Talaria col -->
+<div>
+<h4 class="footer-col-title">🔥 Talaria</h4>
+<ul class="footer-links">
+<li><a href="products/talaria-sting.html">Sting</a></li>
+<li><a href="products/talaria-sting-r.html">Sting R</a></li>
+<li><a href="products/talaria-sting-mx4.html">Sting MX4</a></li>
+<li><a href="products/talaria-xxx.html">XXX</a></li>
+</ul>
+</div>
+<!-- Info col -->
+<div>
+<h4 class="footer-col-title">Информация</h4>
+<ul class="footer-links">
+<li><a href="about.html">За нас</a></li>
+<li><a href="contact.html">Контакти</a></li>
+<li><a href="#">Доставка &amp; Връщане</a></li>
+<li><a href="#">Гаранция</a></li>
+<li><a href="#">Сервиз</a></li>
+<li><a href="#">Разсрочено плащане</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p class="footer-copy">
           © 2024 <span>ElectroMoto BG</span>. Всички права запазени. | ЕИК: 123456789
         </p>
-        <div class="footer-bottom-links">
-          <a href="#">Политика за поверителност</a>
-          <a href="#">Условия за ползване</a>
-          <a href="#">Бисквитки</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="../js/main.js"></script>
+<div class="footer-bottom-links">
+<a href="#">Политика за поверителност</a>
+<a href="#">Условия за ползване</a>
+<a href="#">Бисквитки</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="../js/main.js"></script>
 </body>
 </html>
